@@ -1,30 +1,30 @@
 var express = require('express');
 var path = require('path')
-var multer  = require('multer');
-var upload = multer({ storage: storage });
+var multer = require('multer');
+var imageCtr = require('./image/image_controller');
+
 
 var app = express();
 
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, '/uploads')
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now())
-  }
-});
+var upload = multer({ dest: 'uploads' }).single('avatar');
 
-app.use('/', function() {
-    var file = upload.single('avatar');
-});
 
-app.post('/', function(req, res){
-    
-  res.send('ok');
+app.post('/image', function(req, res, next) {
+    upload(req, res, function(err) {
+        next();
+    });
+  }, function(req, res, next) {
+        imageCtr.covert(req.file.path, function() {
+            next();
+        });
+  }, function(req, res) {
+        res.json({
+            result: 'success'
+        });
 });
 
 /* istanbul ignore next */
 if (!module.parent) {
-  app.listen(3000);
-  console.log('Express started on port 3000');
+    app.listen(3000);
+    console.log('Express started on port 3000');
 }
