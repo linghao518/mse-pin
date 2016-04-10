@@ -1,12 +1,21 @@
 var im = require('imagemagick');
 
 exports.covert = function(file, cb) {
+    var dstPath = './pics/' + file.filename + '.jpg';
+    var dstPathThumbnail = './pics/' + file.filename + '_thumbnail.jpg';
     im.resize({
         srcPath: file.path,
-        dstPath: './pics/' + file.filename + '.jpg',
+        dstPath: dstPath,
         width: 1000
-    }, function(err, stdout, stderr) {
-        if (err) throw err;
-        cb && cb();
     });
+    im.resize({
+        srcPath: file.path,
+        dstPath: dstPathThumbnail,
+        width: 200
+    });
+
+    return {
+        path: dstPath,
+        thumbnail: dstPathThumbnail
+    };
 }

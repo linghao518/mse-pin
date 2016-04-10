@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MSE PIN</title>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script type="text/javascript" src="libs/modernizr.js"></script>
+    <script type="text/javascript" src="libs/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="libs/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="libs/handlebars-v4.0.5.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" />
+    </header>
+    <div class="grid">
+        <div class="grid-item" data-image="pics/1.jpg">
+            <img src="pics/1.jpg" />
+        </div>
+        <div class="grid-item" data-image="pics/2.jpg">
+            <img src="pics/2.jpg" />
+        </div>
+        <div class="grid-item" data-image="pics/3.jpg">
+            <img src="pics/3.jpg" />
+        </div>
+        <div class="grid-item" data-image="pics/4.jpg">
+            <img src="pics/4.jpg" />
+        </div>
+        <div class="grid-item" data-image="pics/5.jpg">
+            <img src="pics/5.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/6.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/7.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/8.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/9.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/10.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/11.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/12.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/13.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/1.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/2.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/3.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/4.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/5.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/6.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/7.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/8.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/9.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/10.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/11.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/12.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/13.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/1.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/2.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/3.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/4.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/5.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/6.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/7.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/8.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/9.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/10.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/11.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/12.jpg" />
+        </div>
+        <div class="grid-item">
+            <img src="pics/13.jpg" />
+        </div>
+    </div>
+
+    <div class="popup-image-wrap">
+        <button class="btn-close" type="button"><i class="fa fa-times"></i></button>
+        <img src="blank.png" />
+    </div>
+
+    <script id="media-template" type="text/x-handlebars-template">
+        {{#each media}}
+        <div class="grid-item" data-image="{{path}}">
+            <img src="{{thumbnail}}" />
+        </div>
+        {{/each}}
+    </script>
+</body>
+</html>
