@@ -32,7 +32,7 @@ app.post('/image', function(req, res, next) {
 // 获取资源
 app.get('/media', function(req, res) {
     var collection = db.get().collection('media');
-    collection.find().toArray(function(err, docs) {
+    collection.find().sort({"_id": -1}).toArray(function(err, docs) {
         res.json(docs);
     });
 });

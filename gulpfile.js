@@ -23,11 +23,11 @@ gulp.task('connect:dev', function() {
         livereload: true,
         middleware: function(connect, opt) {
             return [
-                proxy(proxyOptions)
-                // connect().use(
-                //     '/api/pics',
-                //     connect.static('/pics11')
-                // ),
+                proxy(proxyOptions),
+                connect().use(
+                    '/pics',
+                    connect.static('./pics')
+                )
             ]
         }
     });

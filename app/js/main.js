@@ -2,9 +2,9 @@ $(document).ready(function() {
     var $popupImageWrap = $(".popup-image-wrap");
 
     var init = function() {
-        //getMedia();
+        getMedia();
         bindEvent();
-        masonry();
+        //masonry();
     };
 
     var getMedia = function() {
