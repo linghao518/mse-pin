@@ -1,5 +1,6 @@
 body {
     background: #222;
+    font-family: Arial;
 }
 header {
     padding: 20px;
@@ -7,6 +8,7 @@ header {
 .grid-item { 
     width: 200px;
     margin-bottom:10px; 
+    cursor: pointer;
 }
 .grid-item img {
     width: 100%;
@@ -19,8 +21,22 @@ header {
     filter: grayscale(0%);
 }
 
+.grid-video {
+    position: relative;
+}
 
-.popup-image-wrap {
+.grid-video:after {
+    font: normal normal normal 40px/1 FontAwesome;
+    content: "\f01d";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -20px 0 0 -20px;
+    color: #fff;
+}
+
+
+.popup-image-wrap, .popup-video-wrap {
     position: fixed;
     top: 0;
     left: 0;
@@ -30,7 +46,7 @@ header {
     display: none;
     text-align: center;
 }
-.popup-image-wrap .btn-close {
+.popup-image-wrap .btn-close, .popup-video-wrap .btn-close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -41,4 +57,53 @@ header {
     cursor: pointer;
     background: none;
 }
-.popup-image-wrap img {}
+
+.upload-btns {
+    float: right;
+}
+.upload-btns button {
+    font-family: Arial;
+    background: #ffba00;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+}
+.upload-btns button i {
+    margin-right: 5px;
+}
+
+.upload-wrap {
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.upload-wrap .upload-success, .upload-wrap .uploading {
+    display: none;
+    position: fixed;
+    width: 400px;
+    font-size: 18px;
+    color: #fff;
+    background: #7ed31c;
+    left: 50%;
+    top: 50%;
+    margin: -50px 0 0 -215px;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.upload-wrap .upload-success i, .upload-wrap .uploading i {
+    font-size: 32px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.upload-wrap .uploading {
+    background: #ffba00;
+}

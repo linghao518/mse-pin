@@ -19,7 +19,7 @@ var proxyOptions = url.parse('http://localhost:3000');
 gulp.task('connect:dev', function() {
     connect.server({
         root: [appConfig.app],
-        port: 3001,
+        port: 3002,
         livereload: true,
         middleware: function(connect, opt) {
             return [
@@ -27,6 +27,10 @@ gulp.task('connect:dev', function() {
                 connect().use(
                     '/pics',
                     connect.static('./pics')
+                ),
+                connect().use(
+                    '/videos',
+                    connect.static('./videos')
                 )
             ]
         }
@@ -38,7 +42,7 @@ gulp.task('connect:dev', function() {
 // -------------------------------
 gulp.task('open', function() {
     return gulp.src(__filename).pipe(open({
-        uri: 'http://localhost:3001'
+        uri: 'http://localhost:3002'
     }));
 });
 
