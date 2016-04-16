@@ -60,6 +60,12 @@ header {
 
 .upload-btns {
     float: right;
+    position: relative;
+}
+.upload-btns input {
+    height: 40px;
+    position: absolute;
+    opacity: 0;
 }
 .upload-btns button {
     font-family: Arial;
@@ -106,4 +112,27 @@ header {
 
 .upload-wrap .uploading {
     background: #ffba00;
+}
+
+@media screen and (max-width: 640px) {
+    body, html {
+        height: 100%;
+    }
+    .upload-btns {
+        position: fixed;
+        width:100%;
+        bottom: 0;
+        left: 0;
+        z-index:999;
+    }
+    .upload-btns button, .upload-btns input {
+        width: 100%;
+    }
+    .upload-btns button {
+        font-size: 40px;
+        padding: 30px 0;
+    }
+    .upload-btns input {
+        height: 100px;
+    }
 }
