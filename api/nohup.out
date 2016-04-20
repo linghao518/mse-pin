@@ -1,0 +1,15 @@
+/Users/tony/Project/mse-pin/api/convert/convert_controller.js:69
+        }
+        ^
+
+SyntaxError: missing ) after argument list
+    at exports.runInThisContext (vm.js:53:16)
+    at Module._compile (module.js:387:25)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Module.require (module.js:367:17)
+    at require (internal/module.js:16:19)
+    at Object.<anonymous> (/Users/tony/Project/mse-pin/api/index.js:4:15)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)

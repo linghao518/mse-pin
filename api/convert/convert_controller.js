@@ -38,6 +38,7 @@ exports.covertImage = function(file, cb) {
 exports.covertVideo = function(file, cb) {
     var input = file.path;
     var videoOutput = 'videos/' + file.filename + '.mp4';
+    var videoShotOutput = 'videos/' + file.filename + '.jpg';
     var thumbnailOutput = 'videos/' + file.filename + '_thumbnail.jpg';
 
     var cmdVideo = "ffmpeg -i " + input + " -vcodec copy -acodec copy ../" + videoOutput;
@@ -45,20 +46,25 @@ exports.covertVideo = function(file, cb) {
         
     });
 
-    var cmdThumbnail = "ffmpeg -i " + input + " -vframes 1 -filter:v scale=\"200:-1\" ../" + thumbnailOutput;
+    var cmdThumbnail = "ffmpeg -i " + input + " -vframes 1 ../" + videoShotOutput;
     process.exec(cmdThumbnail, function(err, stdout, stderr) {
-        im.identify('../' + thumbnailOutput, function(err, features) {
-            if(err) {
-                console.log(err);
-            }
-            console.log(features);
-            cb && cb({
-                path: videoOutput,
-                thumbnail: {
-                    path: thumbnailOutput,
-                    width: features.width,
-                    height: features.height
+        im.resize({
+            srcPath: '../' + videoShotOutput,
+            dstPath: '../' + thumbnailOutput,
+            width: 200
+        }, function() {
+            im.identify('../' + thumbnailOutput, function(err, features) {
+                if(err) {
+                    console.log(err);
                 }
+                cb && cb({
+                    path: videoOutput,
+                    thumbnail: {
+                        path: thumbnailOutput,
+                        width: features.width,
+                        height: features.height
+                    }
+                });
             });
         });
     });
